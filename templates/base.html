@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}장고 게시판{% endblock %}</title>
+    {% load staticfiles %}
+    <!-- <link rel="stylesheet" href="{% block base_style %}{% static "css/base.css" %}{% endblock %}"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{% block extra_style %}{% endblock %}" /> -->
+</head>
+<body>
+    {% block content %}{% endblock %}
+    {% block footer %}{% endblock %}
+</body>
+</html>

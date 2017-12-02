@@ -1,0 +1,13 @@
+<form method="post" action="."> {% csrf_token %} {% if form.errors %}
+    <p>아래 입력내용을 다시 확인하세요.</p>
+    {% endif %}
+    <p>이름과 비밀번호를 입력하세요.</p>
+    <fieldset>
+        <div>{{ form.username.label_tag }} {{ form.username }}</div>
+        <div>{{ form.password1.label_tag }} {{ form.password1 }}</div>
+        <div>{{ form.password2.label_tag }} {{ form.password2 }}</div>
+    </fieldset>
+    <div>
+        <input type="submit" value="회원가입" />
+    </div>
+</form>
