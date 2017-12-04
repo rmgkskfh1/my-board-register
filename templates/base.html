@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,22 +10,46 @@
     <link rel="stylesheet" href="{% block base_style %}{% static "css/base.css" %}{% endblock %}">
     <link rel="stylesheet" type="text/css" href="{% block extra_style %}{% endblock %}" />
 </head>
+
 <body>
     <nav class="clearfix">
         <ul>
-            <li><a href="{% url 'home' %}">홈</a></li>
+            <li>
+                <a href="{% url 'home' %}">홈</a>
+            </li>
             {% if user.is_active %}
             <li>{% firstof user.get_short_name user.get_username %}님 입장.</li>
-            <li><a href="{% url 'password_change' %}">비밀번호 변경</a></li>
-            <li><a href="{% url 'logout' %}">로그아웃</a></li>
+            <li>
+                <a href="{% url 'password_change' %}">비밀번호 변경</a>
+            </li>
+            {% if user.is_superuser %}
+            <li>
+                <a href="{% url 'admin:index' %}">관리자</a>
+            </li>
+            {% endif %}
+            <li>
+                <a href="{% url 'logout' %}">로그아웃</a>
+            </li>
             {% else %}
             <li>환영합니다.</li>
-            <li><a href="{% url 'login' %}">로그인</a></li>
-            <li><a href="{% url 'register' %}">회원가입</a></li>
+            <li>
+                <a href="{% url 'login' %}">로그인</a>
+            </li>
+            <li>
+                <a href="{% url 'register' %}">회원가입</a>
+            </li>
             {% endif %}
         </ul>
     </nav>
-    {% block content %}{% endblock %}
-    {% block footer %}<div>&copy; 2017. (이름) All rights reserved.</div>{% endblock %}
+    <nav class="clearfix"
+        <ul>
+            <li>
+                <a href="{% url 'board:index' %}">게시판</a>
+            </li>
+        </ul>
+    </nav>
+    {% block content %}{% endblock %} {% block footer %}
+    <div>&copy; 2017. (이름) All rights reserved.</div>{% endblock %}
 </body>
+
 </html>

@@ -26,4 +26,5 @@ urlpatterns = [
 
 
     url(r'^$', HomeView.as_view(), name='home'),
+    url(r'^board/', include('board.urls', namespace='board')),
 ]
