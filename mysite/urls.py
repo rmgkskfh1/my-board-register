@@ -18,11 +18,15 @@ from django.contrib import admin
 from mysite.views import HomeView
 from mysite.views import UserRegisterView, UserRegisterDoneView
 
+from mysite import views 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^accounts/register/$', UserRegisterView.as_view(), name='register'),
     url(r'^accounts/register/done/$', UserRegisterDoneView.as_view(), name='register_done'),
+    # ajax 는 ajax/로 시작하여 구분합니다.
+    url(r'^ajax/validate_username/$', views.validate_username, name="validate_username"),
 
 
     url(r'^$', HomeView.as_view(), name='home'),
