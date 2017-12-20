@@ -9,8 +9,10 @@
     {% endif %}
     <p>아이디와 비밀번호를 입력하세요.</p>
     <fieldset>
-        {{ form.username.label_tag }} {{ form.username }}
-        <br>{{ form.password.label_tag }} {{ form.password }}
+        {{ form.username.label_tag }}
+        {{ form.username }}
+        <br>{{ form.password.label_tag }}
+        {{ form.password }}
     </fieldset>
     <input type="submit" value="로그인" />
     <input type="hidden" name="next" value="{{ next }}" />

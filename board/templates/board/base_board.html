@@ -4,5 +4,10 @@
 {% block extra_style %}{% static "css/board.css" %}{% endblock %}
 {% block content %}
 <h1>게시판</h1>
+<nav>
+    <ul>
+        <li><a href="{% url 'board:post_add' %}">쓰기</a></li>
+    </ul>
+</nav>
 {% block content_board %}{% endblock content_board %}
 {% endblock content %}

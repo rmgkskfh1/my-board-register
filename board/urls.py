@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'^postlist/page(?P<page>[0-9]+)/$', PostList.as_view(), name='post_list'),
 
     # # Example: /post/add/
-    # url(r'^post/add/$', PostCreate.as_view(), name="post_add",),
+    url(r'^post/add/$', PostCreate.as_view(), name="post_add",),
 
     # Example: /post/99/
     url(r'^post/(?P<pk>\d+)/$', PostDetail.as_view(), name='post_detail'),

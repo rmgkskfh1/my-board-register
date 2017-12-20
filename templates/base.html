@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}장고 게시판{% endblock %}</title>
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% block base_style %}{% static "css/base.css" %}{% endblock %}">
-    <link rel="stylesheet" type="text/css" href="{% block extra_style %}{% endblock %}" />
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+    <link rel="stylesheet" href="{% block extra_style %}{% endblock %}" />
 </head>
 
 <body>
@@ -48,7 +48,10 @@
             </li>
         </ul>
     </nav>
-    {% block content %}{% endblock %} {% block footer %}
+    {% block content %}
+    {% endblock %}
+
+    {% block footer %}
     <div>&copy; 2017. (이름) All rights reserved.</div>{% endblock %}
 </body>
 
